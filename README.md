@@ -111,7 +111,7 @@ python create_test.py   # Includes Case 2, the example file you gave in assignme
 python complex_test.py 
 ```
 
-```bash complex_text.py``` - This creates a total of 100 different test files with varying:
+``` complex_text.py``` - This creates a total of 100 different test files with varying:
 Pattern sizes (1 to 64 bytes)
 Repetition counts (50 to 1000)
 Pattern complexity (simple to complex)
