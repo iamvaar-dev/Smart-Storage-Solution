@@ -3,20 +3,33 @@
 ## Table of Contents
 1. [Overview](#overview)
 2. [System Architecture](#system-architecture)
-3. [Compression Algorithms](#compression-algorithms)
-4. [File Formats](#file-formats)
-5. [Test Suites](#test-suites)
-6. [Usage Guide](#usage-guide)
-7. [Performance Analysis](#performance-analysis)
-8. [Implementation Details](#implementation-details)
-9. [Examples](#examples)
-10. [Troubleshooting](#troubleshooting)
+3. [Key Test Cases](#key-test-cases)
+4. [Compression Algorithms](#compression-algorithms)
+5. [File Formats](#file-formats)
+6. [Test Suites](#test-suites)
+7. [Usage Guide](#usage-guide)
+8. [Performance Analysis](#performance-analysis)
+9. [Implementation Details](#implementation-details)
+10. [Examples](#examples)
+11. [Troubleshooting](#troubleshooting)
 
 ## Overview
 
 This system implements a pattern-based file compression solution with two main compression strategies:
 - Pattern-based compression for repeating sequences
 - Block-based compression for files with unique blocks
+
+### Key Test Cases Solved
+1. **Case 2 Solution**: Successfully handles 10-byte patterns repeated 100,000 times
+   - Instead of storing 1MB of data
+   - Compressed using pattern-based approach
+   - Significant storage optimization achieved
+
+2. **File Fill Pattern Test**: Demonstrates basic pattern repetition
+   - Pattern: `0F AB BB` (3 bytes)
+   - Repeated 11 times
+   - Total size: 33 bytes
+   - Efficiently compressed using pattern detection
 
 ### Key Features
 - Automatic pattern detection
@@ -81,13 +94,17 @@ Format: [0x00][Block Size (8B)][Num Blocks (4B)][Unique Blocks][Sequence Data]
 
 ### 1. Simple Test Suite (create_test.py)
 ```python
-test_patterns = [
-    ("assignment_pattern.bin", bytes([0x0F, 0xAB, 0xBB]), "Assignment Pattern"),
-    ("pattern_cafe.bin", bytes([0xCA, 0xFE, 0xEE]), "CAFE Pattern"),
-    ("pattern_dead.bin", bytes([0xDE, 0xAD, 0xAD]), "DEAD Pattern"),
-    ("pattern_ipv6.bin", bytes([0xFE, 0x80, 0x00]), "IPv6 Pattern"),
-    ("pattern_babe.bin", bytes([0xBA, 0xBE, 0xEE]), "BABE Pattern")
-]
+# Key Test Case 2 Implementation
+def create_case2_test():
+    """Creates a test file with 10-byte pattern repeated 100,000 times"""
+    pattern = bytes([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A])
+    create_test_file("case2_test.bin", pattern, 100000)  # Creates 1MB file
+
+# Basic Pattern Fill Test
+def create_basic_pattern_test():
+    """Creates a test file with 3-byte pattern repeated 11 times"""
+    pattern = bytes([0x0F, 0xAB, 0xBB])
+    create_test_file("basic_pattern.bin", pattern, 11)  # Creates 33-byte file
 ```
 
 #### Test Categories:
