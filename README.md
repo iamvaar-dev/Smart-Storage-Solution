@@ -108,7 +108,10 @@ def create_basic_pattern_test():
 ```bash
 python create_test.py   # Includes Case 2, the example file you gave in assignment and basic pattern tests.
 
-python complex_test.py # This creates a total of 100 different test files with varying:
+python complex_test.py 
+```
+
+```bash complex_text.py``` - This creates a total of 100 different test files with varying:
 Pattern sizes (1 to 64 bytes)
 Repetition counts (50 to 1000)
 Pattern complexity (simple to complex)
@@ -120,7 +123,6 @@ Alternating patterns
 Mathematical patterns
 Mixed patterns
 Various file sizes
-```
 
 ## Source Code
 Repository: [GitHub Repository](https://github.com/iamvaar-dev/port_first_round)
