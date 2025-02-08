@@ -30,14 +30,6 @@ Successfully implemented the example from assignment:
    - Rebuilds original file from compressed format
    - Uses metadata to reconstruct exact original
 
-### File Format
-```python
-# Pattern-Based Format
-[0x01][Pattern Size (8B)][Repetitions (8B)][Pattern Data]
-
-# Block-Based Format
-[0x00][Block Size (8B)][Num Blocks (4B)][Unique Blocks][Sequence Data]
-```
 
 ## Usage
 
@@ -49,7 +41,7 @@ Successfully implemented the example from assignment:
 ./reconstruct <input_file> <output_file>
 ```
 
-## Test Suite (Don't get tired of manual test use these two in-depth tests with various bunch of examples)
+## Test Suite (check the bottom of this page to learn how to run these test suites)
 ```python
 # Key Test Case 2 Implementation
 def create_case2_test():
@@ -112,9 +104,22 @@ def create_basic_pattern_test():
 - Example: With block size 4, bytes 0-3 = block 1, bytes 4-7 = block 2, etc.
 - Metadata is added for reconstruction purposes
 
-## Running Tests
+## Running Tests (Don't get tired of manual test use these two in-depth tests with various bunch of examples)
 ```bash
-python create_test.py    # Includes Case 2 and basic pattern tests
+python create_test.py   # Includes Case 2, the example file you gave in assignment and basic pattern tests.
+
+python complex_test.py # This creates a total of 100 different test files with varying:
+Pattern sizes (1 to 64 bytes)
+Repetition counts (50 to 1000)
+Pattern complexity (simple to complex)
+Mathematical relationships (increments, XOR, modulo)
+Each pattern is designed to test different aspects of the compression algorithm's capabilities in handling:
+Simple repetitions
+Sequential patterns
+Alternating patterns
+Mathematical patterns
+Mixed patterns
+Various file sizes
 ```
 
 ## Source Code
