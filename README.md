@@ -5,7 +5,7 @@
 ### 1. Pattern Repetition Case (Case 2 from Assignment)
 Successfully solved the case where 10 bytes are repeated 100,000 times:
 - Input: 10-byte pattern repeated 100,000 times (would normally require 1MB storage)
-- Output: Only 10 bytes stored (plus minimal metadata)
+- Output: Only 10 bytes stored (If including minimal metadata smartfile size maybe 20 - 30 bytes rather than 1000000 bytes. still a good deal)
 - Achievement: Reduced storage from 1MB to essentially 10 bytes
 - Test Implementation: `create_case2_test()` in test suite
 
@@ -14,7 +14,7 @@ Successfully implemented the example from assignment:
 - Pattern: `0F AB BB` (3 bytes)
 - Repetitions: 11 times
 - Total Original Size: 33 bytes
-- Compressed: Stores only 3 bytes (plus minimal metadata)
+- Compressed: Stores only 3 bytes (If including minimal metadata smartfil size maybe 20 bytes still saves some space. This happens only when the repetetions of the data is so low. technically works with large duplicate data very very effieciently.)
 - Test Implementation: `create_basic_pattern_test()` in test suite
 
 ## System Overview
@@ -49,7 +49,7 @@ Successfully implemented the example from assignment:
 ./reconstruct <input_file> <output_file>
 ```
 
-## Test Suite
+## Test Suite (Don't get tired of manual test use these two in-depth tests with various bunch of examples)
 ```python
 # Key Test Case 2 Implementation
 def create_case2_test():
